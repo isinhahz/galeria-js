@@ -1,16 +1,33 @@
 'use strict'
 function criarImagem (imagem) {
     const galeria = document.getElementById('galeria')
-    const img = document.createElement ('img')
+
+    //Cria um contêiner para a imagem e a legenda
+    const container = document.createElement('div');
+    container.classList.add('galeria__item');
+
+    //Cria a tag da imagem
+    const img = document.createElement('img');
     img.src = imagem.url
-    galeria.appendChild(img)
+
+    //Cria a tag da legenda
+    const legenda = document.createElement('p');
+    legenda.textContent = imagem.nome;
+    legenda.classList.add('Legenda');
+    
+    //Adiciona a imagem e a legenda ao contêiner
+    container.appendChild(img);
+    container.appendChild(legenda);
+
+    //Adiciona o contêiner completo a galeria
+    galeria.appendChild(container);
 
 }
 
 function carregarimagens (){
     const imagens = [
         {
-            nome: 'lua',
+            nome: 'Lua',
             url: './img/arte-1.jpg',
         },
 
@@ -30,7 +47,7 @@ function carregarimagens (){
         },
 
         {
-            nome: 'Mulher indigena',
+            nome: 'Mulher indígena',
             url: './img/arte-5.webp'
         },
 
@@ -45,7 +62,7 @@ function carregarimagens (){
         },
 
         {
-            nome: 'Estatua',
+            nome: 'Estátua',
             url: './img/arte-8.webp'
         },
 
